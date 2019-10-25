@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "seafile-api"
-  spec.version       = '0.3.4'
+  spec.version       = '0.3.4.1'
   spec.authors       = ["Kostiantyn Semchenko"]
   spec.email         = ["kostiantyn.semchenko@masterofcode.com"]
   spec.summary       = "Seafile-Api"
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
                         "lib/seafile-api/share.rb", "lib/seafile-api/shared/share.rb",
                         "lib/seafile-api/shared/shared_files.rb", "lib/seafile-api/shared/shared_libraries.rb"]
   spec.add_development_dependency "rspec", "~> 3.0.0"
-  spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake"
-  spec.add_runtime_dependency 'curb', '~> 0.8.5'
+  spec.add_runtime_dependency 'curb', '~> 0.9.7'
 end
