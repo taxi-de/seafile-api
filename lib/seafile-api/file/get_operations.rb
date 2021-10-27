@@ -4,7 +4,7 @@ module SeafileApi
       def get_sf_token
          if self.token == nil
             token_url = "#{self.host}/api2/auth-token/)"
-             res = Curl::Easy.new(URI::encode(token_url))
+             res = Curl::Easy.new(URI.encode_www_form_component(token_url))
              p_data = {username: self.user_name , password: self.password}.map do |key, value|
                  Curl::PostField.content(key, value)
              end
@@ -49,6 +49,6 @@ module SeafileApi
           JSON.parse(http.body_str)
         end
 
-     
+
   end
 end
