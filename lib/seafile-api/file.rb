@@ -6,7 +6,7 @@ module SeafileApi
       get_file_link(filename, repo)
     end
 
-    def get_token
+    def fetch_token
       get_sf_token
     end
 
@@ -26,8 +26,8 @@ module SeafileApi
       get_block(repo)
     end
 
-    def upload_file(file, path='/', repo=self.repo)
-      post_upload(repo, { 'file' => file, 'filename' => File.basename(file), 'parent_dir' => path.to_s })
+    def upload_file(file, path='/', repo=self.repo, filename=nil)
+      post_upload(repo, { 'file' => file, 'filename' => filename || File.basename(file), 'parent_dir' => path.to_s })
     end
 
     def update_file(file, target_file=nil, repo=self.repo)

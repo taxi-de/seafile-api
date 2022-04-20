@@ -4,7 +4,7 @@ module SeafileApi
   class Connect
     private
 
-    def get_sf_token
+    def fetch_sf_token
       return token if token
 
       token_url = "#{host}/api2/auth-token/)"

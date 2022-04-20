@@ -16,7 +16,7 @@ module SeafileApi
       self.password   = password
       self.host       = host
       self.repo       = repo
-      self.token      = get_token
+      self.token      = fetch_token
     end
   end
 end
