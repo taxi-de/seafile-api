@@ -2,12 +2,12 @@
 
 module SeafileApi
   class Connect
-    def file_link(filename, repo=self.repo)
+    def file_link(filename, repo = self.repo)
       get_file_link(filename, repo)
     end
 
     def fetch_token
-      get_sf_token
+      fetch_sf_token
     end
 
     def file_detail(filename, repo=self.repo)
