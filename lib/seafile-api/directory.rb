@@ -34,12 +34,12 @@ module SeafileApi
 
     # curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
     def post_create_dir(path, repo)
-      curl_post("#{host}/api2/repos/#{repo}/dir/?p=#{path}", { 'operation' => 'mkdir' }).body_str
+      curl_post("repos/#{repo}/dir/?p=#{path}", { 'operation' => 'mkdir' }).body_str
     end
 
     # curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
     def delete_directory(path, repo)
-      curl_delete("#{host}/api2/repos/#{repo}/dir/?p=#{path}").body_str
+      curl_delete("repos/#{repo}/dir/?p=#{path}").body_str
     end
 
     # curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/download/?p=/foo
@@ -50,7 +50,7 @@ module SeafileApi
 
     # curl -v -X POST -d "emails=user@example.com&s_type=d&path=/dir&perm=r" -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/share/
     def post_share_dir(repo, data)
-      curl_post("#{host}/api2/repos/#{repo}/dir/share/", data).body_str
+      curl_post("repos/#{repo}/dir/share/", data).body_str
     end
   end
 end
