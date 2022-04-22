@@ -26,7 +26,7 @@ module SeafileApi
       http.body_str.gsub('"', '')
     end
 
-    def curl_post(url, data={})
+    def curl_post(url, data = {})
       request_url = "#{host}/api2/#{CGI.escape(url)}"
       c = Curl::Easy.new(request_url)
       c.multipart_form_post = true
@@ -50,7 +50,7 @@ module SeafileApi
       end
     end
 
-    def curl_put(url, data={})
+    def curl_put(url, data = {})
       request_url = "#{host}/api2/#{CGI.escape(url)}"
       c = Curl::Easy.new(request_url)
       c.headers['Authorization'] = "Token #{fetch_sf_token}"
@@ -61,7 +61,7 @@ module SeafileApi
       c
     end
 
-    def curl_delete(url, data={})
+    def curl_delete(url, data = {})
       request_url = "#{host}/api2/#{CGI.escape(url)}"
       c = Curl::Easy.new(request_url)
       c.headers['Authorization'] = "Token #{fetch_sf_token}"

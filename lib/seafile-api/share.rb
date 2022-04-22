@@ -7,7 +7,7 @@ module SeafileApi
       get_list_shared_files_link
     end
 
-    def create_file_share_link(file, repo_id=repo)
+    def create_file_share_link(file, repo_id = repo)
       create_share_link(file, repo_id)
     end
 
@@ -50,7 +50,7 @@ module SeafileApi
     end
 
     # TODO: need test not working !!
-    def share_library(repo_id, user, group_id, permission='rw', share_type='group')
+    def share_library(repo_id, user, group_id, permission = 'rw', share_type = 'group')
       put_share_library(repo_id, share_type, user, group_id, permission)
     end
 

@@ -5,11 +5,7 @@ require 'curb'
 
 module SeafileApi
   class Connect
-    attr_accessor :user_name
-    attr_accessor :password
-    attr_accessor :host
-    attr_accessor :repo
-    attr_accessor :token
+    attr_accessor :user_name, :password, :host, :repo, :token
 
     def initialize(user_name, password, host, repo)
       self.user_name  = user_name

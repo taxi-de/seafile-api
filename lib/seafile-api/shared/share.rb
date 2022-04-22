@@ -16,7 +16,8 @@ module SeafileApi
 
     # curl -v  -X PUT -d "p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
     def create_share_link(file, repo_id)
-      curl_put("repos/#{repo_id}/file/shared-link/", { 'p' => file }).head.split('Location:')[1].scan(%r{\w{4,5}://.{1,}/})[0]
+      curl_put("repos/#{repo_id}/file/shared-link/",
+               { 'p' => file }).head.split('Location:')[1].scan(%r{\w{4,5}://.{1,}/})[0]
     end
   end
 end

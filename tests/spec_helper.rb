@@ -5,10 +5,10 @@ require_relative '../lib/seafile-api'
 RSpec.configure do |config|
   config.after(:all) do
     test_dir = begin
-                 Dropbox::Spec.instance.find(Dropbox::Spec.test_dir)
+      Dropbox::Spec.instance.find(Dropbox::Spec.test_dir)
     rescue StandardError
       nil
-               end
+    end
     test_dir.destroy if test_dir && !test_dir.is_deleted?
   end
 end

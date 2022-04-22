@@ -23,7 +23,7 @@ module SeafileApi
       get_group_messages_replies
     end
 
-    def send_group_message(group_id, message, repo_id=repo, path='/')
+    def send_group_message(group_id, message, repo_id = repo, path = '/')
       post_message_to_group(group_id, { 'message' => message, 'repo_id' => repo_id, 'path' => path })
     end
 

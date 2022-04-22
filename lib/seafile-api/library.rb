@@ -7,7 +7,7 @@ module SeafileApi
       get_default_lib
     end
 
-    def create_sub_library(repo_id, name, p='/')
+    def create_sub_library(repo_id, name, p = '/')
       get_create_sub_lib(repo_id, p, name)
     end
 
@@ -41,7 +41,7 @@ module SeafileApi
     end
 
     # post libraries
-    def create_library(name, desc='new repo', pwd=nil)
+    def create_library(name, desc = 'new repo', pwd = nil)
       post_lib({ 'name' => name, 'desc' => desc, 'passwd' => pwd })
     end
 
