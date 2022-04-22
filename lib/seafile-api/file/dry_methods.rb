@@ -31,7 +31,13 @@ module SeafileApi
       req = url.split('?')
       request_url = []
       request_url << req.first
-      request_url << CGI.escape(req[1..].join('?')).to_s
+      params = []
+      req[1..].join('?').split('&').each do |e|
+        param = e.split('=')
+
+        params << [param.first, CGI.escape(param.last)].join('=')
+      end
+      request_url << params.join('&')
       request_url.reject(&:blank?).join('?')
     end
 
