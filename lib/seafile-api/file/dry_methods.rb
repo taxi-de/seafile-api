@@ -32,8 +32,7 @@ module SeafileApi
       request_url = []
       request_url << req.first
       request_url << CGI.escape(req[1..].join('?')).to_s
-
-      request_url.join('?')
+      request_url.reject(&:blank?).join('?')
     end
 
     def curl_post(url, data = {})
