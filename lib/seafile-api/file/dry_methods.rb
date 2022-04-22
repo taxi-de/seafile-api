@@ -27,7 +27,8 @@ module SeafileApi
     end
 
     def curl_post(url, data = {})
-      request_url = "#{host}/api2/#{CGI.escape(url)}"
+      req = url.split('?')
+      request_url = "#{host}/api2/#{req.first}?#{CGI.escape(req[1..].join('?'))}"
       c = Curl::Easy.new(request_url)
       c.multipart_form_post = true
       c.headers['Authorization'] = "Token #{fetch_sf_token}"
@@ -44,14 +45,16 @@ module SeafileApi
     end
 
     def curl_get(url)
-      request_url = "#{host}/api2/#{CGI.escape(url)}"
+      req = url.split('?')
+      request_url = "#{host}/api2/#{req.first}?#{CGI.escape(req[1..].join('?'))}"
       Curl.get(request_url) do |http|
         http.headers['Authorization'] = "Token #{fetch_sf_token}"
       end
     end
 
     def curl_put(url, data = {})
-      request_url = "#{host}/api2/#{CGI.escape(url)}"
+      req = url.split('?')
+      request_url = "#{host}/api2/#{req.first}?#{CGI.escape(req[1..].join('?'))}"
       c = Curl::Easy.new(request_url)
       c.headers['Authorization'] = "Token #{fetch_sf_token}"
       c.headers['Content-Type'] = 'application/json'
@@ -62,7 +65,8 @@ module SeafileApi
     end
 
     def curl_delete(url, data = {})
-      request_url = "#{host}/api2/#{CGI.escape(url)}"
+      req = url.split('?')
+      request_url = "#{host}/api2/#{req.first}?#{CGI.escape(req[1..].join('?'))}"
       c = Curl::Easy.new(request_url)
       c.headers['Authorization'] = "Token #{fetch_sf_token}"
       c.headers['Content-Type'] = 'application/json'
